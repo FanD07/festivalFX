@@ -10,13 +10,13 @@
 | Letzter verifizierter Meilenstein | Keiner — nur Brainstorming und Dokumentation |
 | Bereits implementierte Features | 0 (in diesem Projektpaket) |
 | Letztes bestätigtes Feature | keines |
-| Aktives Arbeitsticket | keines |
-| Nächstes geplantes Ticket | **FFX-001 — Technische Zielmatrix** |
-| Nächste benötigte Aktion | Claude analysiert auf „Mach weiter“ lesend und beantragt konkrete Freigabe A-FFX-001 |
-| Freigaben für Code/Assets/Design/Build/Test/Git | **Keine** |
-| Branch / Repository | Nicht inspiziert, unbekannt; bitte vorab lesend feststellen |
-| Zielversion als Planungsvorschlag | Minecraft Java 26.3 / Fabric; final zu bestätigen |
-| Letzte Aktualisierung | 2026-10-29 (Dokumentationsinitialisierung) |
+| Aktives Arbeitsticket | **FFX-001 — Technische Zielmatrix** (`REVIEW`) |
+| Nächstes geplantes Ticket | FFX-002 — Repository initialisieren (erst nach Abnahme FFX-001) |
+| Nächste benötigte Aktion | Nutzer prüft `TECH_MATRIX.md` und entscheidet die offenen Punkte; danach Abnahme B-FFX-001 |
+| Freigaben für Code/Assets/Design/Build/Test/Git | Nur A-FFX-001 (Doku-Umsetzung FFX-001); keine Code-, Build-, Test- oder Git-Publishing-Freigabe |
+| Branch / Repository | Lokaler Branch `feature/ffx-001-tech-matrix` (von `main` @ `5085d0a`); nur Dokumentation, kein Code; nicht committed, nicht gepusht |
+| Zielversion als Planungsvorschlag | Minecraft Java 26.3 / Fabric / Java 25; verifiziert, Bestätigung durch Nutzer offen (siehe `TECH_MATRIX.md`) |
+| Letzte Aktualisierung | 2026-10-29 (FFX-001 Zielmatrix) |
 
 ## Status-Legende
 
@@ -32,7 +32,7 @@
 
 | Ticket | Beschreibung | Status | Abhängigkeit | Letzte Freigabe | Beleg |
 |---|---|---|---|---|---|
-| FFX-001 | Versions-/Build-/UI-/Backend-Matrix | TODO | – | – | – |
+| FFX-001 | Versions-/Build-/UI-/Backend-Matrix | REVIEW | – | A-FFX-001 (2026-10-29, Chat) | `docs/TECH_MATRIX.md` |
 | FFX-002 | Repository initialisieren/auditieren | TODO | 001 | – | – |
 | FFX-003 | Mod-Minimalstart Client/Server | TODO | 002 | – | – |
 | FFX-004 | Mod-Settings Design | TODO | 003 | – | – |
@@ -52,7 +52,12 @@ Die zusammengefassten Bereiche sind **keine** pauschale Freigabe. Sobald ein Ber
 
 ## Offene Freigabeanträge
 
-*Keine.* Immer mit konkreter Antrag-ID, Zeitbezug, vorgesehenem Scope, Status (`OFFEN/GENEHMIGT/ABGELEHNT/ERSETZT`) und Fundstelle der Bestätigung protokollieren.
+| Antrag | Datum | Scope | Status | Fundstelle |
+|---|---|---|---|---|
+| A-FFX-001 | 2026-10-29 | Branch `feature/ffx-001-tech-matrix`, neue `TECH_MATRIX.md`, TA-001/TA-002 in `DECISIONS.md`, `STATUS.md`; kein Commit | GENEHMIGT | Chat-Session 2026-10-29 |
+| B-FFX-001 | 2026-10-29 | Abnahme des FFX-001-Diffs (nur Doku) | GENEHMIGT | Chat 2026-10-29 |
+
+Immer mit konkreter Antrag-ID, Zeitbezug, vorgesehenem Scope, Status (`OFFEN/GENEHMIGT/ABGELEHNT/ERSETZT`) und Fundstelle der Bestätigung protokollieren.
 
 ## Gefällte Produktentscheidungen
 
@@ -67,6 +72,7 @@ Die zusammengefassten Bereiche sind **keine** pauschale Freigabe. Sobald ein Ber
 | Datum | Änderung | Quelle |
 |---|---|---|
 | 2026-10-29 | Initialzustand, alle Tickets offen | Dokumentationsentwurf aus Brainstorming |
+| 2026-10-29 | FFX-001 auf `REVIEW`, Zielmatrix angelegt, Branch-Stand eingetragen | A-FFX-001 |
 
 ## Checkliste nach jedem einzelnen Feature
 

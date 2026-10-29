@@ -18,8 +18,8 @@
 
 | Vorschlag | Begründung | Entscheidung benötigt |
 |---|---|---|
-| TA-001: Start mit Minecraft Java 26.3, Fabric | Zum Planungsdatum letzte stabile Version, Fabric vorhanden | Zielmatrix FFX-001 |
-| TA-002: Java 25, Fabric Loom 1.17, Gradle 9.6 als Baseline | Plattform-/Blog-Indizien; Verifikation gegen reale aktuelle Toolchain | FFX-001 |
+| TA-001: Start mit Minecraft Java 26.3, Fabric | 26.3 am 29.10.2026 verifiziert letzte stabile Version (26.4 nur Snapshots); Fabric Loader 0.20.1 und Fabric API 0.165.0+26.3 verfügbar; Belege in `TECH_MATRIX.md` | Nutzerbestätigung: Zielversion 26.3 und vorerst nur Fabric |
+| TA-002: Java 25 als Baseline; Loom/Gradle nach offiziellem Fabric-Template für 26.3 pinnen | Java 25 laut Mojang-Versions-JSON verifiziert; Blog-Angabe Loom 1.17 / Gradle 9.6.0 inzwischen überholt (Loom 1.19.3, Gradle 9.8.2 aktuell); Belege in `TECH_MATRIX.md` | Nutzerbestätigung; exaktes Pinning in FFX-002 |
 | TA-003: Core/Render/UI/Network/Storage getrennte Module/Pakete | Testbarkeit und wechselbare Renderer/UI-Stile | FFX-008 |
 | TA-004: Native Renderer + eigener RenderCore + Experimental Full Scene | Trennung von realistischer Hauptlösung und Forschung | FFX-008/050 |
 | TA-005: Dear ImGui Docking als UI-Kandidat | Desktop-Editor-Muster, aber Backend-Integration riskant | FFX-007 |
