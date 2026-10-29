@@ -46,6 +46,24 @@
 - Konsequenzen / Risiken: FFX-002 setzt ein installiertes JDK 25 voraus. Vulkan-Nutzer sind bis zur Folgeentscheidung nicht offiziell unterstützt. Ein Wechsel auf 26.4 erfordert einen Port.
 - Rückweg / Migration: Port auf 26.4 bzw. Aufnahme von NeoForge oder Vulkan jeweils als eigenes Ticket mit eigener Freigabe.
 
+### ADR-002 – Projektidentität und Build-Pinning
+- Datum: 2026-10-29
+- Status: BESTÄTIGT
+- Ticket und Freigabe: FFX-002 / A-FFX-002 (Nutzerauswahl im Chat am 2026-10-29)
+- Kontext: Für die Repository-Initialisierung müssen Mod-ID, Maven-Gruppe, Java-Paket, Lizenz, Loom-Version und CI festgelegt werden. Grundlage ist das offizielle Fabric-Template, Branch `26.3` von `FabricMC/fabric-example-mod` (CC0).
+- Alternativen:
+  - Paket: `dev.festivalfx` (nur sauber mit eigener Domain).
+  - Lizenz: MIT oder LGPL-3.0.
+  - Loom: `1.19-SNAPSHOT` wie im Template (nicht reproduzierbar).
+  - CI: GitHub-Actions-Workflow aus dem Template sofort übernehmen.
+- Entscheidung:
+  1. Mod-ID `festivalfx`, Maven-Gruppe und Java-Basispaket **`io.github.fand07.festivalfx`**.
+  2. Lizenz **All Rights Reserved**; späteres Lockern bleibt möglich.
+  3. **Fabric Loom 1.19.3** (Release) statt `1.19-SNAPSHOT`; Gradle-Wrapper 9.8.2 mit geprüfter Distributions-Prüfsumme.
+  4. **Kein CI** in FFX-002; GitHub Actions später als eigenes Ticket.
+- Konsequenzen / Risiken: Falls Loom 1.19.3 mit 26.3 nicht baut, wird gestoppt und neu entschieden (Ausweichoption `1.19-SNAPSHOT`). Fremde dürfen den Code nicht weiterverwenden, solange die Lizenz nicht geändert wird.
+- Rückweg / Migration: Lizenzwechsel per Austausch von `LICENSE` und `fabric.mod.json`; Paketumbenennung, solange noch kein veröffentlichter Build existiert, ohne Migrationsaufwand für Spieler.
+
 ## ADR-Schema für neue technische Entscheidungen
 
 ```md

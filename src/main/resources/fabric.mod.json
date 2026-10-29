@@ -1,0 +1,21 @@
+{
+	"schemaVersion": 1,
+	"id": "festivalfx",
+	"version": "${version}",
+	"name": "FestivalFX",
+	"description": "Festival and concert lighting for Minecraft. Early development build without gameplay features.",
+	"authors": [
+		"FanD07"
+	],
+	"contact": {
+		"sources": "https://github.com/FanD07/festivalFX"
+	},
+	"license": "All-Rights-Reserved",
+	"environment": "*",
+	"depends": {
+		"fabricloader": ">=0.20.1",
+		"minecraft": "~26.3",
+		"java": ">=25",
+		"fabric-api": "*"
+	}
+}

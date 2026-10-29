@@ -10,13 +10,13 @@
 | Letzter verifizierter Meilenstein | Keiner — nur Brainstorming und Dokumentation |
 | Bereits implementierte Features | 0 (in diesem Projektpaket) |
 | Letztes bestätigtes Feature | keines |
-| Aktives Arbeitsticket | keines (FFX-001 `DONE`) |
-| Nächstes geplantes Ticket | **FFX-002 — Repository initialisieren**; Voraussetzung: JDK 25 vom Nutzer installiert |
-| Nächste benötigte Aktion | Nutzer installiert JDK 25; Claude prüft lesend und beantragt auf „Mach weiter“ Freigabe A-FFX-002 |
-| Freigaben für Code/Assets/Design/Build/Test/Git | Keine offenen; A-FFX-001 und A-FFX-001-D sind abgeschlossen |
-| Branch / Repository | Branch `feature/ffx-001-tech-matrix` (von `main` @ `5085d0a`), Commit `5bd0e11` auf `origin` gepusht; ADR-001-Änderungen noch nicht committed; nur Dokumentation, kein Code; `main` unverändert |
-| Zielversion | Minecraft Java 26.3 / nur Fabric / Java 25 / OpenGL zuerst — **bestätigt** (ADR-001) |
-| Letzte Aktualisierung | 2026-10-29 (FFX-001 Zielmatrix) |
+| Aktives Arbeitsticket | **FFX-002 — Repository initialisieren** (`REVIEW`, Build bestanden und abgenommen; Commit/Push ausstehend) |
+| Nächstes geplantes Ticket | FFX-003 — Mod-Minimalstart Client/Server (erst nach Abnahme FFX-002) |
+| Nächste benötigte Aktion | Commit- und Push-Freigabe für FFX-002 (C-/D-FFX-002) |
+| Freigaben für Code/Assets/Design/Build/Test/Git | A-FFX-002, Test FFX-002 und B-FFX-002 erteilt; keine Commit- oder Push-Freigabe |
+| Branch / Repository | Branch `feature/ffx-002-repo-init` (von `feature/ffx-001-tech-matrix` @ `dda6fd8`); FFX-002-Dateien nicht committed, nicht gepusht. `feature/ffx-001-tech-matrix` @ `dda6fd8` auf `origin`; `main` unverändert @ `5085d0a` |
+| Zielversion | Minecraft Java 26.3 / nur Fabric / Java 25 / OpenGL zuerst — **bestätigt** (ADR-001); Paket, Lizenz, Loom 1.19.3 — **bestätigt** (ADR-002) |
+| Letzte Aktualisierung | 2026-10-29 (FFX-002 Repository-Initialisierung) |
 
 ## Status-Legende
 
@@ -33,7 +33,7 @@
 | Ticket | Beschreibung | Status | Abhängigkeit | Letzte Freigabe | Beleg |
 |---|---|---|---|---|---|
 | FFX-001 | Versions-/Build-/UI-/Backend-Matrix | DONE | – | A-FFX-001-D (2026-10-29, Chat) | `docs/TECH_MATRIX.md`, ADR-001 |
-| FFX-002 | Repository initialisieren/auditieren | TODO | 001 | – | – |
+| FFX-002 | Repository initialisieren/auditieren | REVIEW | 001 | B-FFX-002 (2026-10-29, Chat) | Gradle-/Fabric-Projektdateien, ADR-002; Build-Test bestanden |
 | FFX-003 | Mod-Minimalstart Client/Server | TODO | 002 | – | – |
 | FFX-004 | Mod-Settings Design | TODO | 003 | – | – |
 | FFX-005 | Beam Rendering Spike | TODO | 003 | – | – |
@@ -59,6 +59,11 @@ Die zusammengefassten Bereiche sind **keine** pauschale Freigabe. Sobald ein Ber
 | C-FFX-001 | 2026-10-29 | Lokaler Commit der drei FFX-001-Dateien | GENEHMIGT, Commit `5bd0e11` | Chat 2026-10-29 |
 | D-FFX-001 | 2026-10-29 | Push `5bd0e11` → `origin/feature/ffx-001-tech-matrix` | GENEHMIGT, ausgeführt | Chat 2026-10-29 |
 | A-FFX-001-D | 2026-10-29 | ADR-001 in `DECISIONS.md`, Abschnitt 5 in `TECH_MATRIX.md`, `STATUS.md`; kein Commit | GENEHMIGT | Chat 2026-10-29 |
+| C-FFX-001-D | 2026-10-29 | Lokaler Commit der ADR-001-Änderungen | GENEHMIGT, Commit `dda6fd8` | Chat 2026-10-29 |
+| D-FFX-001-D | 2026-10-29 | Push `dda6fd8` → `origin/feature/ffx-001-tech-matrix` | GENEHMIGT, ausgeführt | Chat 2026-10-29 |
+| A-FFX-002 | 2026-10-29 | Branch `feature/ffx-002-repo-init`, Gradle-/Wrapper-/Lizenz-/`fabric.mod.json`-Dateien, ADR-002, `STATUS.md`; kein Build, kein Commit | GENEHMIGT | Chat 2026-10-29 |
+| Test FFX-002 | 2026-10-29 | `gradlew.bat build` mit JDK 25 | GENEHMIGT, **bestanden**: `BUILD SUCCESSFUL` (Windows 11, Temurin 25.0.5, Gradle 9.8.2, Loom 1.19.3); `festivalfx-0.0.1-dev.jar` mit `fabric.mod.json` (Version `0.0.1-dev`) und `LICENSE_festivalfx`; `git status` unverändert. Kein Java-Code kompiliert, Ingame-Test entfällt (FFX-003) | Chat 2026-10-29 |
+| B-FFX-002 | 2026-10-29 | Abnahme FFX-002 (Projektdateien, ADR-002, Testergebnis) | GENEHMIGT | Chat 2026-10-29 |
 
 Immer mit konkreter Antrag-ID, Zeitbezug, vorgesehenem Scope, Status (`OFFEN/GENEHMIGT/ABGELEHNT/ERSETZT`) und Fundstelle der Bestätigung protokollieren.
 
@@ -77,6 +82,8 @@ Immer mit konkreter Antrag-ID, Zeitbezug, vorgesehenem Scope, Status (`OFFEN/GEN
 | 2026-10-29 | Initialzustand, alle Tickets offen | Dokumentationsentwurf aus Brainstorming |
 | 2026-10-29 | FFX-001 auf `REVIEW`, Zielmatrix angelegt, Branch-Stand eingetragen | A-FFX-001 |
 | 2026-10-29 | Entscheidungen als ADR-001 bestätigt, FFX-001 `DONE`, FFX-002 als nächstes Ticket | A-FFX-001-D |
+| 2026-10-29 | FFX-002 auf `REVIEW`, Projektdateien angelegt, ADR-002 eingetragen | A-FFX-002 |
+| 2026-10-29 | Build-Test FFX-002 bestanden, Abnahme eingetragen | B-FFX-002 |
 
 ## Checkliste nach jedem einzelnen Feature
 
