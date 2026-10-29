@@ -17,15 +17,15 @@ Eine Freigabe gilt nur für die darin ausdrücklich genannten Arbeitsschritte, D
 ## 1. Einstieg in jede Session
 
 In dieser Reihenfolge lesen und abgleichen:
-1. `CLAUDE.md` (diese Datei)
-2. `rules.md` — nicht verhandelbare Engineering- und Freigaberegeln
-3. `STATUS.md` — Quelle für tatsächlichen Projektfortschritt und offene Freigaben
-4. `Timeline.md` — technische Reihenfolge und Meilensteine
-5. `Vision.md` — Produktziele, Prioritäten und bewusst offene Entscheidungen
-6. `ARCHITECTURE.md` — derzeitige Architekturannahmen, ungeklärte Risiken
-7. `DECISIONS.md` — nur ausdrücklich bestätigte Architektur- und Designentscheidungen
-8. `TESTPLAN.md` — Prüfstrategie und Abnahmekriterien
-9. `CHANGELOG.md` und `Wiki.md` — tatsächliche Auslieferungen und Nutzerfunktionen
+1. `docs/CLAUDE.md` (diese Datei)
+2. `docs/rules.md` — nicht verhandelbare Engineering- und Freigaberegeln
+3. `docs/STATUS.md` — Quelle für tatsächlichen Projektfortschritt und offene Freigaben
+4. `docs/Timeline.md` — technische Reihenfolge und Meilensteine
+5. `docs/Vision.md` — Produktziele, Prioritäten und bewusst offene Entscheidungen
+6. `docs/ARCHITECTURE.md` — derzeitige Architekturannahmen, ungeklärte Risiken
+7. `docs/DECISIONS.md` — nur ausdrücklich bestätigte Architektur- und Designentscheidungen
+8. `docs/TESTPLAN.md` — Prüfstrategie und Abnahmekriterien
+9. `docs/CHANGELOG.md` und `Wiki.md` — tatsächliche Auslieferungen und Nutzerfunktionen
 10. Aktuelle Projektdateien, Branch, Git-Status **nur lesend** prüfen.
 
 Falls eine Datei fehlt oder widersprüchlich ist: nicht stillschweigend ersetzen, nichts erfinden; Widerspruch zeigen und Lösung vorschlagen. Vision und Timeline sind **Pläne**, keine Belege für implementierte Features. Nur verifizierter Code plus Tests beweisen eine Umsetzung.
