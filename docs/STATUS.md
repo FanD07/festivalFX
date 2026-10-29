@@ -10,12 +10,12 @@
 | Letzter verifizierter Meilenstein | Keiner — nur Brainstorming und Dokumentation |
 | Bereits implementierte Features | 0 (in diesem Projektpaket) |
 | Letztes bestätigtes Feature | keines |
-| Aktives Arbeitsticket | **FFX-001 — Technische Zielmatrix** (`REVIEW`) |
-| Nächstes geplantes Ticket | FFX-002 — Repository initialisieren (erst nach Abnahme FFX-001) |
-| Nächste benötigte Aktion | Nutzer prüft `TECH_MATRIX.md` und entscheidet die offenen Punkte; danach Abnahme B-FFX-001 |
-| Freigaben für Code/Assets/Design/Build/Test/Git | Nur A-FFX-001 (Doku-Umsetzung FFX-001); keine Code-, Build-, Test- oder Git-Publishing-Freigabe |
-| Branch / Repository | Lokaler Branch `feature/ffx-001-tech-matrix` (von `main` @ `5085d0a`); nur Dokumentation, kein Code; nicht committed, nicht gepusht |
-| Zielversion als Planungsvorschlag | Minecraft Java 26.3 / Fabric / Java 25; verifiziert, Bestätigung durch Nutzer offen (siehe `TECH_MATRIX.md`) |
+| Aktives Arbeitsticket | keines (FFX-001 `DONE`) |
+| Nächstes geplantes Ticket | **FFX-002 — Repository initialisieren**; Voraussetzung: JDK 25 vom Nutzer installiert |
+| Nächste benötigte Aktion | Nutzer installiert JDK 25; Claude prüft lesend und beantragt auf „Mach weiter“ Freigabe A-FFX-002 |
+| Freigaben für Code/Assets/Design/Build/Test/Git | Keine offenen; A-FFX-001 und A-FFX-001-D sind abgeschlossen |
+| Branch / Repository | Branch `feature/ffx-001-tech-matrix` (von `main` @ `5085d0a`), Commit `5bd0e11` auf `origin` gepusht; ADR-001-Änderungen noch nicht committed; nur Dokumentation, kein Code; `main` unverändert |
+| Zielversion | Minecraft Java 26.3 / nur Fabric / Java 25 / OpenGL zuerst — **bestätigt** (ADR-001) |
 | Letzte Aktualisierung | 2026-10-29 (FFX-001 Zielmatrix) |
 
 ## Status-Legende
@@ -32,7 +32,7 @@
 
 | Ticket | Beschreibung | Status | Abhängigkeit | Letzte Freigabe | Beleg |
 |---|---|---|---|---|---|
-| FFX-001 | Versions-/Build-/UI-/Backend-Matrix | REVIEW | – | A-FFX-001 (2026-10-29, Chat) | `docs/TECH_MATRIX.md` |
+| FFX-001 | Versions-/Build-/UI-/Backend-Matrix | DONE | – | A-FFX-001-D (2026-10-29, Chat) | `docs/TECH_MATRIX.md`, ADR-001 |
 | FFX-002 | Repository initialisieren/auditieren | TODO | 001 | – | – |
 | FFX-003 | Mod-Minimalstart Client/Server | TODO | 002 | – | – |
 | FFX-004 | Mod-Settings Design | TODO | 003 | – | – |
@@ -56,6 +56,9 @@ Die zusammengefassten Bereiche sind **keine** pauschale Freigabe. Sobald ein Ber
 |---|---|---|---|---|
 | A-FFX-001 | 2026-10-29 | Branch `feature/ffx-001-tech-matrix`, neue `TECH_MATRIX.md`, TA-001/TA-002 in `DECISIONS.md`, `STATUS.md`; kein Commit | GENEHMIGT | Chat-Session 2026-10-29 |
 | B-FFX-001 | 2026-10-29 | Abnahme des FFX-001-Diffs (nur Doku) | GENEHMIGT | Chat 2026-10-29 |
+| C-FFX-001 | 2026-10-29 | Lokaler Commit der drei FFX-001-Dateien | GENEHMIGT, Commit `5bd0e11` | Chat 2026-10-29 |
+| D-FFX-001 | 2026-10-29 | Push `5bd0e11` → `origin/feature/ffx-001-tech-matrix` | GENEHMIGT, ausgeführt | Chat 2026-10-29 |
+| A-FFX-001-D | 2026-10-29 | ADR-001 in `DECISIONS.md`, Abschnitt 5 in `TECH_MATRIX.md`, `STATUS.md`; kein Commit | GENEHMIGT | Chat 2026-10-29 |
 
 Immer mit konkreter Antrag-ID, Zeitbezug, vorgesehenem Scope, Status (`OFFEN/GENEHMIGT/ABGELEHNT/ERSETZT`) und Fundstelle der Bestätigung protokollieren.
 
@@ -73,6 +76,7 @@ Immer mit konkreter Antrag-ID, Zeitbezug, vorgesehenem Scope, Status (`OFFEN/GEN
 |---|---|---|
 | 2026-10-29 | Initialzustand, alle Tickets offen | Dokumentationsentwurf aus Brainstorming |
 | 2026-10-29 | FFX-001 auf `REVIEW`, Zielmatrix angelegt, Branch-Stand eingetragen | A-FFX-001 |
+| 2026-10-29 | Entscheidungen als ADR-001 bestätigt, FFX-001 `DONE`, FFX-002 als nächstes Ticket | A-FFX-001-D |
 
 ## Checkliste nach jedem einzelnen Feature
 

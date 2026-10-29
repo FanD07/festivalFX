@@ -18,12 +18,33 @@
 
 | Vorschlag | Begründung | Entscheidung benötigt |
 |---|---|---|
-| TA-001: Start mit Minecraft Java 26.3, Fabric | 26.3 am 29.10.2026 verifiziert letzte stabile Version (26.4 nur Snapshots); Fabric Loader 0.20.1 und Fabric API 0.165.0+26.3 verfügbar; Belege in `TECH_MATRIX.md` | Nutzerbestätigung: Zielversion 26.3 und vorerst nur Fabric |
-| TA-002: Java 25 als Baseline; Loom/Gradle nach offiziellem Fabric-Template für 26.3 pinnen | Java 25 laut Mojang-Versions-JSON verifiziert; Blog-Angabe Loom 1.17 / Gradle 9.6.0 inzwischen überholt (Loom 1.19.3, Gradle 9.8.2 aktuell); Belege in `TECH_MATRIX.md` | Nutzerbestätigung; exaktes Pinning in FFX-002 |
+| TA-001: Start mit Minecraft Java 26.3, Fabric | 26.3 am 29.10.2026 verifiziert letzte stabile Version (26.4 nur Snapshots); Fabric Loader 0.20.1 und Fabric API 0.165.0+26.3 verfügbar; Belege in `TECH_MATRIX.md` | **Entschieden → ADR-001** (BESTÄTIGT, 2026-10-29) |
+| TA-002: Java 25 als Baseline; Loom/Gradle nach offiziellem Fabric-Template für 26.3 pinnen | Java 25 laut Mojang-Versions-JSON verifiziert; Blog-Angabe Loom 1.17 / Gradle 9.6.0 inzwischen überholt (Loom 1.19.3, Gradle 9.8.2 aktuell); Belege in `TECH_MATRIX.md` | **Entschieden → ADR-001** (BESTÄTIGT, 2026-10-29); exaktes Pinning in FFX-002 |
 | TA-003: Core/Render/UI/Network/Storage getrennte Module/Pakete | Testbarkeit und wechselbare Renderer/UI-Stile | FFX-008 |
 | TA-004: Native Renderer + eigener RenderCore + Experimental Full Scene | Trennung von realistischer Hauptlösung und Forschung | FFX-008/050 |
 | TA-005: Dear ImGui Docking als UI-Kandidat | Desktop-Editor-Muster, aber Backend-Integration riskant | FFX-007 |
 | TA-006: Serverseitige Showzeit mit Client-Interpolation | Multiplayer-Synchronisierung unabhängig von FPS | FFX-008/037 |
+
+## Bestätigte technische Entscheidungen (ADR)
+
+### ADR-001 – Technische Zielplattform
+- Datum: 2026-10-29
+- Status: BESTÄTIGT
+- Ticket und Freigabe: FFX-001 / A-FFX-001-D (Nutzerauswahl im Chat am 2026-10-29)
+- Kontext: Vor der Repository-Initialisierung (FFX-002) müssen Spielversion, Loader, JDK, Build-Tooling und das erste Grafik-Backend feststehen. Versionsfakten und Quellen: `TECH_MATRIX.md`.
+- Alternativen:
+  - Zielversion: auf das 26.4-Release warten (keine stabile Basis, Termin unbekannt).
+  - Loader: Multi-Loader (Fabric + NeoForge) von Beginn an (mehr Setup, doppelte Tests, jede Abhängigkeit für beide nötig).
+  - Backend: OpenGL und Vulkan gleichzeitig (doppelter Testaufwand, Vulkan-Status in 26.3 unbestätigt).
+  - Loom/Gradle: jetzt feste Versionen vorgeben (Risiko, dass sie nicht zum offiziellen Template passen).
+- Entscheidung:
+  1. Zielversion **Minecraft Java 26.3**, festgepinnt.
+  2. **Vorerst nur Fabric**; der Core bleibt loader-unabhängig.
+  3. **OpenGL** als erstes offiziell getestetes Backend; Vulkan erst nach Prüfung im Spiel (FFX-003/005) und eigener Entscheidung.
+  4. **Java 25** als Baseline; der Nutzer installiert JDK 25 selbst, Claude prüft nur lesend.
+  5. **Loom- und Gradle-Version** werden in FFX-002 aus dem offiziellen Fabric-Template für 26.3 übernommen und vor dem Pinnen zur Freigabe vorgelegt.
+- Konsequenzen / Risiken: FFX-002 setzt ein installiertes JDK 25 voraus. Vulkan-Nutzer sind bis zur Folgeentscheidung nicht offiziell unterstützt. Ein Wechsel auf 26.4 erfordert einen Port.
+- Rückweg / Migration: Port auf 26.4 bzw. Aufnahme von NeoForge oder Vulkan jeweils als eigenes Ticket mit eigener Freigabe.
 
 ## ADR-Schema für neue technische Entscheidungen
 

@@ -1,7 +1,7 @@
 # FestivalFX — Technische Zielmatrix (FFX-001)
 
-> **Stand:** 29.10.2026 · **Ticket:** FFX-001 · **Freigabe:** A-FFX-001 (Umsetzung dieser Dokumentation) · **Status:** `REVIEW`
-> Diese Datei hält **recherchierte Versionsfakten** fest. Sie ist **keine bestätigte Entscheidung**. Bestätigungen stehen ausschließlich in `DECISIONS.md` und nur nach ausdrücklicher Nutzerfreigabe.
+> **Stand:** 29.10.2026 · **Ticket:** FFX-001 · **Freigabe:** A-FFX-001 (Umsetzung dieser Dokumentation), A-FFX-001-D (Entscheidungen) · **Status:** `DONE`
+> Diese Datei hält **recherchierte Versionsfakten** fest. Sie ist selbst **keine Entscheidung**. Die bestätigten Entscheidungen stehen in `DECISIONS.md` unter **ADR-001**.
 
 ## 0. Leseschlüssel
 
@@ -57,15 +57,15 @@ Lizenzen, Wartungszustand und Sicherheitsrisiken jeder Abhängigkeit werden **vo
 | Minecraft Launcher | vorhanden; installierte Versionen bis 26.1, **26.3 noch nicht** | 26.3 für Ingame-Tests (R-008A) installieren, sobald FFX-003 ansteht |
 | Git | 2.46.2 | ausreichend |
 
-## 5. Offene Entscheidungen für den Nutzer
+## 5. Entscheidungen des Nutzers
 
-Diese Punkte sind **nicht** entschieden. Sie werden erst nach ausdrücklicher Bestätigung in `DECISIONS.md` als `BESTÄTIGT` eingetragen.
+Am 2026-10-29 vom Nutzer entschieden; verbindlich festgehalten in `DECISIONS.md`, **ADR-001**.
 
-1. **Zielversion:** 26.3 festpinnen oder auf das 26.4-Release warten.
-2. **Modloader:** vorerst nur Fabric (Empfehlung) oder von Beginn an Multi-Loader.
-3. **Grafik-Backend:** OpenGL zuerst, Vulkan erst nach eigener Prüfung offiziell unterstützen (Empfehlung).
-4. **JDK 25:** Installation selbst durchführen oder als eigenen Arbeitspunkt freigeben.
-5. **Loom/Gradle:** Pinning nach offiziellem Fabric-Template in FFX-002 (Empfehlung) oder feste Vorgabe jetzt.
+1. **Zielversion:** 26.3 festgepinnt; ein Port auf 26.4 wird ein eigenes Ticket. → ADR-001
+2. **Modloader:** vorerst nur Fabric; Core bleibt loader-unabhängig. → ADR-001
+3. **Grafik-Backend:** OpenGL zuerst; Vulkan erst nach Prüfung im Spiel und eigener Entscheidung. → ADR-001
+4. **JDK 25:** installiert der Nutzer selbst; Claude prüft nur lesend mit `java -version`. → ADR-001
+5. **Loom/Gradle:** werden in FFX-002 nach dem offiziellen Fabric-Template für 26.3 gepinnt und vorher vorgelegt. → ADR-001
 
 ## 6. Quellen (abgerufen am 29.10.2026)
 
