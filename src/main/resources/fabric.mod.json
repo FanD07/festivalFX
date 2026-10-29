@@ -12,6 +12,14 @@
 	},
 	"license": "All-Rights-Reserved",
 	"environment": "*",
+	"entrypoints": {
+		"main": [
+			"io.github.fand07.festivalfx.FestivalFX"
+		],
+		"client": [
+			"io.github.fand07.festivalfx.client.FestivalFXClient"
+		]
+	},
 	"depends": {
 		"fabricloader": ">=0.20.1",
 		"minecraft": "~26.3",

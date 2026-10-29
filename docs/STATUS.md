@@ -10,13 +10,13 @@
 | Letzter verifizierter Meilenstein | Keiner — nur Brainstorming und Dokumentation |
 | Bereits implementierte Features | 0 (in diesem Projektpaket) |
 | Letztes bestätigtes Feature | keines |
-| Aktives Arbeitsticket | **FFX-002 — Repository initialisieren** (`REVIEW`, Build bestanden und abgenommen; Commit/Push ausstehend) |
-| Nächstes geplantes Ticket | FFX-003 — Mod-Minimalstart Client/Server (erst nach Abnahme FFX-002) |
-| Nächste benötigte Aktion | Commit- und Push-Freigabe für FFX-002 (C-/D-FFX-002) |
-| Freigaben für Code/Assets/Design/Build/Test/Git | A-FFX-002, Test FFX-002 und B-FFX-002 erteilt; keine Commit- oder Push-Freigabe |
-| Branch / Repository | Branch `feature/ffx-002-repo-init` (von `feature/ffx-001-tech-matrix` @ `dda6fd8`); FFX-002-Dateien nicht committed, nicht gepusht. `feature/ffx-001-tech-matrix` @ `dda6fd8` auf `origin`; `main` unverändert @ `5085d0a` |
+| Aktives Arbeitsticket | **FFX-003 — Mod-Minimalstart Client/Server** (`REVIEW`, Tests bestanden und abgenommen; Commit/Push ausstehend) |
+| Nächstes geplantes Ticket | FFX-004 bis FFX-007 (Spikes), erst nach Abnahme FFX-003 einzeln vorschlagen |
+| Nächste benötigte Aktion | Commit- und Push-Freigabe für FFX-003 (C-/D-FFX-003) |
+| Freigaben für Code/Assets/Design/Build/Test/Git | A-FFX-003, Test FFX-003 und B-FFX-003 erteilt; keine Commit- oder Push-Freigabe |
+| Branch / Repository | Branch `feature/ffx-003-minimal-start` (von `feature/ffx-002-repo-init` @ `f2f360f`); FFX-003-Dateien nicht committed, nicht gepusht. Auf `origin`: `feature/ffx-001-tech-matrix` @ `dda6fd8`, `feature/ffx-002-repo-init` @ `f2f360f`; `main` unverändert @ `5085d0a` |
 | Zielversion | Minecraft Java 26.3 / nur Fabric / Java 25 / OpenGL zuerst — **bestätigt** (ADR-001); Paket, Lizenz, Loom 1.19.3 — **bestätigt** (ADR-002) |
-| Letzte Aktualisierung | 2026-10-29 (FFX-002 Repository-Initialisierung) |
+| Letzte Aktualisierung | 2026-10-29 (FFX-003 Mod-Minimalstart) |
 
 ## Status-Legende
 
@@ -33,8 +33,8 @@
 | Ticket | Beschreibung | Status | Abhängigkeit | Letzte Freigabe | Beleg |
 |---|---|---|---|---|---|
 | FFX-001 | Versions-/Build-/UI-/Backend-Matrix | DONE | – | A-FFX-001-D (2026-10-29, Chat) | `docs/TECH_MATRIX.md`, ADR-001 |
-| FFX-002 | Repository initialisieren/auditieren | REVIEW | 001 | B-FFX-002 (2026-10-29, Chat) | Gradle-/Fabric-Projektdateien, ADR-002; Build-Test bestanden |
-| FFX-003 | Mod-Minimalstart Client/Server | TODO | 002 | – | – |
+| FFX-002 | Repository initialisieren/auditieren | DONE | 001 | D-FFX-002 (2026-10-29, Chat) | Commit `f2f360f` auf `origin/feature/ffx-002-repo-init`, ADR-002, Build-Test bestanden |
+| FFX-003 | Mod-Minimalstart Client/Server | REVIEW | 002 | B-FFX-003 (2026-10-29, Chat) | Entrypoints `FestivalFX`/`FestivalFXClient`; T1–T3 bestanden inkl. Ingame-Test |
 | FFX-004 | Mod-Settings Design | TODO | 003 | – | – |
 | FFX-005 | Beam Rendering Spike | TODO | 003 | – | – |
 | FFX-006 | Animierter Fixture Spike | TODO | 003 | – | – |
@@ -64,6 +64,11 @@ Die zusammengefassten Bereiche sind **keine** pauschale Freigabe. Sobald ein Ber
 | A-FFX-002 | 2026-10-29 | Branch `feature/ffx-002-repo-init`, Gradle-/Wrapper-/Lizenz-/`fabric.mod.json`-Dateien, ADR-002, `STATUS.md`; kein Build, kein Commit | GENEHMIGT | Chat 2026-10-29 |
 | Test FFX-002 | 2026-10-29 | `gradlew.bat build` mit JDK 25 | GENEHMIGT, **bestanden**: `BUILD SUCCESSFUL` (Windows 11, Temurin 25.0.5, Gradle 9.8.2, Loom 1.19.3); `festivalfx-0.0.1-dev.jar` mit `fabric.mod.json` (Version `0.0.1-dev`) und `LICENSE_festivalfx`; `git status` unverändert. Kein Java-Code kompiliert, Ingame-Test entfällt (FFX-003) | Chat 2026-10-29 |
 | B-FFX-002 | 2026-10-29 | Abnahme FFX-002 (Projektdateien, ADR-002, Testergebnis) | GENEHMIGT | Chat 2026-10-29 |
+| C-FFX-002 | 2026-10-29 | Lokaler Commit der 13 FFX-002-Dateien, `gradlew` ausführbar | GENEHMIGT, Commit `f2f360f` | Chat 2026-10-29 |
+| D-FFX-002 | 2026-10-29 | Push `f2f360f` → `origin/feature/ffx-002-repo-init` | GENEHMIGT, ausgeführt | Chat 2026-10-29 |
+| A-FFX-003 | 2026-10-29 | Branch `feature/ffx-003-minimal-start`, `FestivalFX.java`, `FestivalFXClient.java`, Entrypoints in `fabric.mod.json`, `STATUS.md`; keine Tests, kein Commit | GENEHMIGT | Chat 2026-10-29 |
+| Test FFX-003 | 2026-10-29 | T1 `build`, T2 `runServer`, T3 `runClient` mit Ingame-Bedienung | GENEHMIGT, **bestanden** (Windows 11, RTX 4080 SUPER, Temurin 25.0.5, MC 26.3, Loader 0.20.1, Fabric API 0.165.0+26.3). T1: beide Klassen kompiliert. T2: Dedicated Server auf 127.0.0.1:25565, Common-Logzeile ja, Client-Logzeile nein, sauber per `stop` beendet. T3: Titelmenü „Modded“, Testwelt „FFX-003 Test“ (Kreativ, Superflach) angelegt, F3 zeigt OpenGL 3.3.0 NVIDIA 617.42, gespeichert, erneut betreten, beendet; beide Logzeilen, keine FestivalFX-Fehler. EULA auf ausdrückliche Nutzeranweisung gesetzt. Nicht getestet: Multiplayer, Vulkan | Chat 2026-10-29 |
+| B-FFX-003 | 2026-10-29 | Abnahme FFX-003 (Entrypoints, Testergebnis) | GENEHMIGT | Chat 2026-10-29 |
 
 Immer mit konkreter Antrag-ID, Zeitbezug, vorgesehenem Scope, Status (`OFFEN/GENEHMIGT/ABGELEHNT/ERSETZT`) und Fundstelle der Bestätigung protokollieren.
 
@@ -84,6 +89,8 @@ Immer mit konkreter Antrag-ID, Zeitbezug, vorgesehenem Scope, Status (`OFFEN/GEN
 | 2026-10-29 | Entscheidungen als ADR-001 bestätigt, FFX-001 `DONE`, FFX-002 als nächstes Ticket | A-FFX-001-D |
 | 2026-10-29 | FFX-002 auf `REVIEW`, Projektdateien angelegt, ADR-002 eingetragen | A-FFX-002 |
 | 2026-10-29 | Build-Test FFX-002 bestanden, Abnahme eingetragen | B-FFX-002 |
+| 2026-10-29 | FFX-002 `DONE` nach Push; FFX-003 auf `REVIEW`, Entrypoints angelegt | A-FFX-003 |
+| 2026-10-29 | Tests FFX-003 bestanden (inkl. Ingame), Abnahme eingetragen | B-FFX-003 |
 
 ## Checkliste nach jedem einzelnen Feature
 
